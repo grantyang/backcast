@@ -16,7 +16,6 @@ describe('VideoListEntryView', function() {
 
   it('should call select on the model when the title is clicked', function() {
     view.$('.video-list-entry-title').click();
-    console.log('Spec :', model);
     expect(model.select).to.have.been.called;
   });
 
