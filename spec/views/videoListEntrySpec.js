@@ -7,7 +7,7 @@ describe('VideoListEntryView', function() {
 
     view = new VideoListEntryView({ model: model });
     view.template = _.template('<div class="video-list-entry-title"><%= snippet.title %></div>');
-    view.render();  // re-render with test template
+    view.render(); // re-render with test template
   });
 
   it('should render a video\'s content', function() {
@@ -16,6 +16,7 @@ describe('VideoListEntryView', function() {
 
   it('should call select on the model when the title is clicked', function() {
     view.$('.video-list-entry-title').click();
+    console.log('Spec :', model);
     expect(model.select).to.have.been.called;
   });
 

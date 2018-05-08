@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,6 +11,7 @@
   <script src="node_modules/underscore/underscore.js"></script>
   <script src="node_modules/backbone/backbone.js"></script>
 </head>
+
 <body>
   <div id="app">
     <h5 style="border:none;">
@@ -22,6 +24,8 @@
   <script src="src/collections/videos.js"></script>
   <script src="src/lib/templateUrl.js"></script>
 
+  <script src="src/data/exampleVideoData.js"></script>
+
   <script src="src/views/app.js"></script>
   <script src="src/views/search.js"></script>
   <script src="src/views/videoList.js"></script>
@@ -30,9 +34,10 @@
 
   <script>
     backboneReady(() => {
-      new AppView();
+      new AppView(this.exampleVideoData);
     });
   </script>
 
 </body>
+
 </html>

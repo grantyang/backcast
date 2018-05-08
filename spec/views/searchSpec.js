@@ -7,7 +7,7 @@ describe ('SearchView', function() {
 
     view = new SearchView({ collection: collection });
     view.template = _.template('<input type="text"/><button></button>');
-    view.render();  // re-render with test template
+    view.render(); // re-render with test template
   });
 
   xdescribe('when rendering live data from YouTube', function() {
