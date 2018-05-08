@@ -2,6 +2,7 @@ var Videos = Backbone.Collection.extend({
   initialize: function () {
     // this.search('dogs');
     this.search = _.debounce(this.nonDebouncedSearch, 500);
+    // this.search = this.nonDebouncedSearch;
 
   },
 
