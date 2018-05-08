@@ -26,7 +26,7 @@ var VideoPlayerView = Backbone.View.extend({
       contentType: 'application/json',
       success: function (response) {
         console.log('expand success!');
-        console.log(response);
+        // console.log(response);
         video.render(response.items[0]);
       },
       error: function () {
@@ -37,8 +37,8 @@ var VideoPlayerView = Backbone.View.extend({
 
 
   render: function (model) {
+    this.currentVideo = model;
     if (model !== undefined) {
-      this.currentVideo = model;
       if (model.attributes !== undefined) {
         this.$el.html(this.template(
           Object.assign({

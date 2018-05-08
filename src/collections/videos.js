@@ -2,18 +2,21 @@ var Videos = Backbone.Collection.extend({
   initialize: function () {
     // this.search('dogs');
     this.search = _.debounce(this.nonDebouncedSearch, 500);
+    this.query;
+    this.nextPageToken;
+    this.prevPageToken;
     // this.search = this.nonDebouncedSearch;
 
   },
 
-  nonDebouncedSearch: function (searchInput) {
+  nonDebouncedSearch: function (searchInput, pageToken = '') {
     var dataObj = {
       data: {
         'maxResults': '5',
         'part': 'snippet',
         'key': window.YOUTUBE_API_KEY,
         'q': searchInput,
-        'type': ''
+        'pageToken': pageToken
       }
     };
     this.fetch(dataObj);
@@ -29,6 +32,11 @@ var Videos = Backbone.Collection.extend({
       contentType: 'application/json',
       success: function (response) {
         console.log('GET success!');
+        videos.query = dataObj.data.q;
+        console.log(videos.query);
+        
+        videos.nextPageToken = response.nextPageToken;
+        videos.prevPageToken = response.prevPageToken;
         videos.reset();
         videos.add(videos.parse(response));
         videos.trigger('sync', videos);
