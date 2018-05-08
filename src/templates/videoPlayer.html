@@ -1,9 +1,21 @@
 <div class="video-player">
   <div class="embed-responsive embed-responsive-16by9">
-    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%=id%>" allowFullScreen></iframe>
+    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<%=id%>?autoplay=<%=autoplayValue%>" allowFullScreen></iframe>
   </div>
+  <!---->
   <div class="video-player-details">
-    <h3><%= snippet.title %></h3>
-    <div><%= snippet.description %></div>
+    <h3>
+      <%= snippet.title %>
+    </h3>
+    <span class="autoplay-text">Autoplay</span>
+    <!-- Rounded switch -->
+    <label class="switch">
+  <input class="autoplaySlider" type="checkbox" <%= checked %> >
+  <span class="slider round"></span>
+</label>
+    <div>
+      <%= snippet.description %>
+    </div>
+    <button id="expandBtn"> Expand Details </button>
   </div>
 </div>
